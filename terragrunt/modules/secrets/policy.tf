@@ -86,7 +86,7 @@ resource "aws_iam_role" "payment_backend" {
   description        = " backend EC2 instance access in ${var.env} environment"
   assume_role_policy = data.aws_iam_policy_document.payment_backend.json
   tags = {
-    Name        = "payment backend"
+    Name        = "api backend"
     terraform   = "true"
     project     = "api"
     env         = var.env
