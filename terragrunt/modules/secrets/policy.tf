@@ -1,4 +1,3 @@
-payment S3 bucket
 
 # IAM policy and bucket policy are *distinct*
 # NOTE: READ ONLY ACCESS - the backend instances do not need anything else
