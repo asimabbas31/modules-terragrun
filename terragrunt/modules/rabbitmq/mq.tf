@@ -1,3 +1,13 @@
+terraform {
+  required_version = ">= 0.12, < 0.13"
+}
+
+terraform {
+  # Intentionally empty. Will be filled by Terragrunt.
+  backend "s3" {}
+}
+
+
 module "rabbitmq" {
   source                            = "ulamlabs/rabbitmq/aws"
   version                           = "3.0.0"
