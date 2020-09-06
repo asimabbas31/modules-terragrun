@@ -12,8 +12,8 @@ resource "aws_security_group" "sgapp" {
   vpc_id = var.vpcid
   # Allow inbound HTTP requests
 ingress {
-    from_port = 8000
-    to_port = 8000
+    from_port = 4000
+    to_port = 4000
     protocol = "tcp"
     cidr_blocks = [
       "0.0.0.0/0"]
@@ -96,6 +96,14 @@ resource "aws_security_group" "rmq" {
     cidr_blocks      = ["0.0.0.0/0"]
     
   }
+  
+    ingress {
+    protocol        = "tcp"
+    from_port       = 15672
+    to_port         = 15672
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
 
   # Allow all outbound requests
 egress {
