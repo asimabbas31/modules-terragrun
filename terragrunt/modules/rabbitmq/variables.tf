@@ -10,7 +10,11 @@ variable "key_name" {
   type        = string
 }
 
+variable "rmqsg" {
+  type        = string
+}
 
 variable "asgsc_application" {
-  type        = string
+  description = "Subnets for RabbitMQ nodes"
+  type        = list(string)
 }
