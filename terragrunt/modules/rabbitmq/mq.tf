@@ -14,7 +14,7 @@ module "rabbitmq" {
   vpc_id                            = var.vpcid
   ssh_key_name                      = var.key_name
   subnet_ids                        = var.asgsc_application
-  elb_additional_security_group_ids = var.rmqsg
+  elb_additional_security_group_ids = "sg-07dda92883c803056"
   min_size                          = "2"
   max_size                          = "2"
   desired_size                      = "2"
