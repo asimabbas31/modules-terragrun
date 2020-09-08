@@ -19,7 +19,7 @@ variable "elb_additional_security_group_ids" {
   default = []
 }
 
-variable "elb_additional_security_group_ids" {
+variable "" {
   type    = list(string)
   default = []
 }
