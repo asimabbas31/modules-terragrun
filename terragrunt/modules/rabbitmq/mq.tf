@@ -13,7 +13,7 @@ module "rabbitmq" {
   version                           = "3.0.0"
   vpc_id                            = var.vpcid
   ssh_key_name                      = var.key_name
-  subnet_ids                        = var.asgsc_application
+  subnet_ids                        = var.subnet_public
   elb_additional_security_group_ids = var.cluster_security_group_id
   min_size                          = "2"
   max_size                          = "2"
