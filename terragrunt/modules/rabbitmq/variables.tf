@@ -15,7 +15,7 @@ variable "key_name" {
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  type      = string
 }
 
 variable "cluster_security_group_id" {
