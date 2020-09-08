@@ -10,11 +10,15 @@ variable "app" {
   type        = string
 }
 
+variable "key_name" {
+  type        = string
+}
+
 variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "elb_additional_security_group_ids" {
+variable "cluster_security_group_id" {
   type    = list(string)
   default = []
 }
