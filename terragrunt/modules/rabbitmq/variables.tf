@@ -23,7 +23,7 @@ variable "cluster_security_group_id" {
   default = []
 }
 
-variable "asgsc_application" {
+variable "subnet_public" {
   type    = list(string)
   default = []
 }
