@@ -11,7 +11,7 @@ variable "key_name" {
 }
 
 variable "rmqsg" {
-  type        = string
+  type        = list(string)
 }
 
 variable "asgsc_application" {
