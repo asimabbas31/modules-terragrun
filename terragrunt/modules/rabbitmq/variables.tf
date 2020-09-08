@@ -19,7 +19,7 @@ variable "elb_additional_security_group_ids" {
   default = []
 }
 
-variable "" {
+variable "asgsc_application" {
   type    = list(string)
   default = []
 }
