@@ -13,3 +13,14 @@ variable "app" {
 variable "instance_type" {
   default = "t2.micro"
 }
+
+variable "elb_additional_security_group_ids" {
+  type    = list(string)
+  default = []
+}
+  }
+
+variable "elb_additional_security_group_ids" {
+  type    = list(string)
+  default = []
+}
