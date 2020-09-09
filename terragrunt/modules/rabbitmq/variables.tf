@@ -1,29 +1,55 @@
-variable "env" {
-  type        = string
-}
-
 variable "vpcid" {
-  type        = string
-}
-
-variable "app" {
-  type        = string
 }
 
 variable "key_name" {
-  type        = string
+}
+
+variable "name" {
+  default = "main"
+}
+
+variable "min_size" {
+  description = "Minimum number of RabbitMQ nodes"
+  default     = 2
+}
+
+variable "desired_size" {
+  description = "Desired number of RabbitMQ nodes"
+  default     = 2
+}
+
+variable "max_size" {
+  description = "Maximum number of RabbitMQ nodes"
+  default     = 2
+}
+
+variable "subnet_ids" {
+  description = "Subnets for RabbitMQ nodes"
+  type        = list(string)
+}
+
+variable "nodes_additional_security_group_ids" {
+  type    = list(string)
+  default = []
+}
+
+variable "elb_additional_security_group_ids" {
+  type    = list(string)
+  default = []
 }
 
 variable "instance_type" {
-  type      = string
+  default = "t2.micro"
 }
 
-variable "cluster_security_group_id" {
-  type    = list(string)
-  default = []
+variable "instance_volume_type" {
+  default = "standard"
 }
 
-variable "subnet_public" {
-  type    = list(string)
-  default = []
+variable "instance_volume_size" {
+  default = "0"
+}
+
+variable "instance_volume_iops" {
+  default = "0"
 }
