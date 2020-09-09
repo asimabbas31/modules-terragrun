@@ -22,7 +22,7 @@ data "template_file" "backend_user_data" {
 
 resource "aws_launch_template" "payment" {
   name          = "${var.app}_${var.env}"
-  image_id      = data.aws_ami.centos.id
+  image_id      = data.aws_ami.api.id
   instance_type = var.instance_type
   key_name      = var.key_name
 
