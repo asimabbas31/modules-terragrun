@@ -20,7 +20,7 @@ terraform {
 
 
 dependency "groups" {
-  config_path = "../sc"
+  config_path = "../groups"
 }
 
 dependency "policy" {
@@ -33,10 +33,4 @@ inputs = {
   sgapp = dependency.groups.outputs.sgapp
   instance_policy   =  dependency.policy.outputs.instance_policy
   
-}
-
-dependencies {
-  paths = [
-    "../sc"
-  ]
 }
