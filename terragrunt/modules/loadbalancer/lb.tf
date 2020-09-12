@@ -77,17 +77,9 @@ resource "aws_lb_listener" "payment_https" {
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = aws_acm_certificate.certpayment.arn
 
-  default_action {
-    type = "forward"
-    forward {
-      target_group {
-        arn    = aws_lb_target_group.apple.arn
-      }
-      stickiness {
-        enabled  = true
-        duration = 3600
-      }
-    }
+   default_action {
+    target_group_arn    = aws_lb_target_group.apple.arn
+    type             = "forward"
   }
 }
 
