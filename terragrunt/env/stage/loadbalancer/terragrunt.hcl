@@ -24,8 +24,8 @@ dependency "vpc" {
   config_path = "../vpc"
 }
 
-dependency "autoscaling_apple" {
-  config_path = "../autoscaling-apple"
+dependency "autoscaling" {
+  config_path = "../autoscaling"
 }
 
 
@@ -33,7 +33,7 @@ inputs = {
   public_subnet = dependency.subnets.outputs.subnet_public
   lbsc = dependency.groups.outputs.lbsc
   vpcid = dependency.vpc.outputs.vpcid
-  autoscaling_group_apple = dependency.autoscaling_apple.outputs.autoscaling_group_apple
+  autoscaling_group_apple = dependency.autoscaling.outputs.autoscaling_group_apple
   domainname = "staging-apilatest.safeboda.com"
 }
 
@@ -42,5 +42,6 @@ dependencies {
     "../vpc",
     "../groups",
     "../network",
-    "autoscaling_apple",
+    "autoscaling"
+    ]
 }
