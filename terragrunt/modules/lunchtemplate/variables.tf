@@ -32,6 +32,3 @@ variable "instance_policy" {
   type        = string
 }
 
-variable "bucket_name" {
-  type        = string
-}
