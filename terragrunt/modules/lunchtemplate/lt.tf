@@ -13,7 +13,6 @@ data "template_file" "backend_user_data" {
   
     vars = {
     app = var.app
-    bucket_name = var.bucket_name
     env = var.env
 
       }
