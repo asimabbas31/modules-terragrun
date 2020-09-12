@@ -1,5 +1,5 @@
 
-aws s3 cp s3://${bucket_name}/${app}/api.tar.gz /tmp
+aws s3 cp s3://api-legacy/api.tar.gz /tmp
 cd /tmp
 tar xf api.tar.gz
 mv /tmp/api/* /var/www/html/
