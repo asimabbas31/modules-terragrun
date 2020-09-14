@@ -39,12 +39,12 @@ resource "aws_lb_target_group" "apple" {
   }
   health_check {
     enabled             = true
-    path                = "/"
+    path                = "/hc.html"
     protocol            = "HTTP"
-    matcher             = "403,302"
+    matcher             = "200"
     healthy_threshold   = 2
     unhealthy_threshold = 2
-    interval            = 60
+    interval            = 30
     timeout             = 3
   }
 }
