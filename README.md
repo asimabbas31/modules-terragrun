@@ -42,12 +42,9 @@ enter the branchname and press enter default value: [master]:
 
 ```bash
 credstash -r eu-west-1 -t api_credential_store_{env} getall -f dotenv
+
 ```
 
-### Get a secret for an environement
-
-```bash
-credstash -r eu-west-1 -t ordermanager_credential_store_{env} get {secret_name}
 
 ### Add a secret to an environment
 
