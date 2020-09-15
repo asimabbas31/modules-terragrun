@@ -36,3 +36,24 @@ enter the branchname and press enter default value: [master]:
 ```
   ``` 
 (Note after every restart all the parameter will reload again from aws parameter store). 
+
+
+### Get all secrets for an environement
+
+```bash
+credstash -r eu-west-1 -t api_credential_store_{env} getall -f dotenv
+```
+
+### Get a secret for an environement
+
+```bash
+credstash -r eu-west-1 -t ordermanager_credential_store_{env} get {secret_name}
+
+### Add a secret to an environment
+
+```bash
+credstash -r eu-west-1 -t api_credential_store_{env} put -k alias/api_credstash_{env} {NAME_OF_KEY} {VALUE}
+
+example:
+credstash -r eu-west-1 -t api_stage_credstash_store ^Ct -k  alias/api_credstash_stage -v 2 ACTIVATION_SMS_MESSAGE "<#> Your SafeBoda verification code is: "
+```
