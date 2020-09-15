@@ -11,7 +11,4 @@ credstash -r eu-west-1 -t  api_stage_credstash_store getall --format dotenv > /v
 systemctl start apache2
 cd /var/www/html/
 
-composer update
-
-
 php artisan queue:work redis --queue=async-commands,bonus-payment,cleanup,device-metadata,default,eta,food-delivery-order-pm,high,notification,order-payments,paygate_rmq_callback_q,paygate-topup,payment,place,projections,safeboda-api-queue,sms,transaction-update,upload-merchants&
