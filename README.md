@@ -52,5 +52,5 @@ credstash -r eu-west-1 -t api_credential_store_{env} getall -f dotenv
 credstash -r eu-west-1 -t api_credential_store_{env} put -k alias/api_credstash_{env} {NAME_OF_KEY} {VALUE}
 
 example:
-credstash -r eu-west-1 -t api_stage_credstash_store ^Ct -k  alias/api_credstash_stage -v 2 ACTIVATION_SMS_MESSAGE "<#> Your SafeBoda verification code is: "
+credstash -r eu-west-1 -t api_credstash_store_stage ^Ct -k  alias/api_credstash_stage -v 2 ACTIVATION_SMS_MESSAGE "<#> Your SafeBoda verification code is: "
 ```
