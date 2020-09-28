@@ -6,13 +6,12 @@ tar xf api.tar.gz
 mv /tmp/api/* /var/www/html/
 
 chown www-data.www-data /var/www/html/storage/ -R
+chown www-data.www-data /var/www/html/vendor/ -R
 credstash -r eu-west-1 -t  api_stage_credstash_store getall --format dotenv > /var/www/html/.env
 
-chmod 777 /var/www/html/storage/ -R
 
 systemctl start apache2
 cd /var/www/html/
-
 
 php artisan queue:work redis --queue=bonus-payment --tries=1&
 php artisan queue:work redis --queue=eta --tries=2&
