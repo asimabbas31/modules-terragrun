@@ -1,3 +1,12 @@
+terraform {
+  required_version = ">= 0.12"
+}
+
+terraform {
+  # Intentionally empty. Will be filled by Terragrunt.
+  backend "s3" {}
+}
+
 resource "aws_iam_role" "eks_cluster" {
   name = "eks-cluster-api"
 
