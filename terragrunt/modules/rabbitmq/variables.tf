@@ -15,7 +15,7 @@ variable "asgsc_application" {
 }
 
 variable "public_subnet" {
-  type        = list
+  type        = string
 }
 
 
