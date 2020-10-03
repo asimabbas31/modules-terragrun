@@ -28,7 +28,8 @@ inputs = {
   vpcid = dependency.vpc.outputs.vpcid
   key_name= "pago"
   asgsc_application= dependency.network.outputs.asgsc_application
-  public_subnet = dependency.network.outputs.public_subnet
+  public_subnet = dependency.network.outputs.subnet_public
+    
 }
 
 dependencies {
