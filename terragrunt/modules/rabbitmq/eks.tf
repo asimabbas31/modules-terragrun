@@ -41,7 +41,7 @@ resource "aws_eks_cluster" "aws_eks" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = var.public_subnet
+    subnet_ids = var.asgsc_application
   }
 
   tags = {
@@ -90,7 +90,7 @@ resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.aws_eks.name
   node_group_name = "rabbitmq-api_${var.env}"
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = var.public_subnet
+  subnet_ids      = var.asgsc_application
   security_group_id =  "sg-07dda92883c803056"
   scaling_config {
     desired_size = 1
