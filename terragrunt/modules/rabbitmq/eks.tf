@@ -95,6 +95,10 @@ resource "aws_eks_node_group" "node" {
     desired_size = 1
     max_size     = 1
     min_size     = 1
+  launch_template {
+    id      = "test"
+    version = "$Latest"
+  }
   }
   
   tags = {
