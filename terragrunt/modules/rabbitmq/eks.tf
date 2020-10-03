@@ -87,8 +87,8 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 }
 
 resource "aws_eks_node_group" "node" {
-  cluster_name    = ""rabbitmq-api_${var.env}""
-  node_group_name = ""rabbitmq-api_${var.env}""
+  cluster_name    = "rabbitmq-api_${var.env}"
+  node_group_name = "rabbitmq-api_${var.env}"
   node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = var.asg_aws_subnet_ids
 
