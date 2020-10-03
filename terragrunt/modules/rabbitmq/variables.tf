@@ -11,6 +11,12 @@ variable "env" {
 variable "app" {
 }
 
+variable "asgsc_application" {
+}
+
+variable "public_subnet" {
+}
+
 
 variable "name" {
   default = "main"
