@@ -41,7 +41,7 @@ resource "aws_eks_cluster" "aws_eks" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = [var.public_subnet]
+    subnet_ids = var.public_subnet
   }
 
   tags = {
