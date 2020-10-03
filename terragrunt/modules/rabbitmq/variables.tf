@@ -12,6 +12,7 @@ variable "app" {
 }
 
 variable "asgsc_application" {
+  type        = list
 }
 
 variable "public_subnet" {
