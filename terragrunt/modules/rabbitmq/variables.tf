@@ -19,8 +19,3 @@ variable "public_subnet" {
 }
 
 
-
-variable "name" {
-  default = "main"
-}
-
