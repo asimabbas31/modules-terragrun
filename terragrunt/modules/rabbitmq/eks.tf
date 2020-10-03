@@ -91,7 +91,8 @@ resource "aws_eks_node_group" "node" {
   node_group_name = "rabbitmq-api_${var.env}"
   node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = var.asgsc_application
-  security_group_id =  "sg-07dda92883c803056"
+  key_name =  var.key_name
+  additional_security_group_ids = "sg-07dda92883c803056"
   scaling_config {
     desired_size = 1
     max_size     = 1
