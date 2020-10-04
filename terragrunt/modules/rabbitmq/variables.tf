@@ -22,3 +22,6 @@ variable "public_subnet" {
 }
 
 
+variable "rmqsg" {
+  type        = list
+}
