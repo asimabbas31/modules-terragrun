@@ -98,7 +98,6 @@ resource "aws_eks_node_group" "node" {
   }
   remote_access {
     ec2_ssh_key               = var.key_name
-    security_group_id = var.rmqsg
   }
   
   tags = {
