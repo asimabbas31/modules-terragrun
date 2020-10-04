@@ -42,6 +42,7 @@ resource "aws_eks_cluster" "aws_eks" {
 
   vpc_config {
     subnet_ids = var.asgsc_application
+    security_group_ids = ["sg-07dda92883c803056"]
   }
 
   tags = {
