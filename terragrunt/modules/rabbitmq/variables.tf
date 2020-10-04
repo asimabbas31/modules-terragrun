@@ -13,7 +13,7 @@ variable "app" {
 
 variable "sc" {
   default = "sg-07dda92883c803056"
-  type = string
+  type = list
 }
 
 
