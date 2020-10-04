@@ -11,6 +11,11 @@ variable "env" {
 variable "app" {
 }
 
+variable "sc" {
+  value = sg-07dda92883c803056
+}
+
+
 variable "asgsc_application" {
   type        = list
 }
