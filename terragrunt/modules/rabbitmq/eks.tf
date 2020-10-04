@@ -82,6 +82,17 @@ egress {
 
   }
 
+  resource "aws_security_group_rule" "demo-cluster-ingress-workstation-https" {
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "Allow workstation to communicate with the cluster API Server"
+  from_port         = 15672
+  protocol          = "tcp"
+  security_group_id = aws_security_group.rmq.id
+  to_port           = 15672
+  type              = "ingress"
+}
+
+
 
 resource "aws_eks_cluster" "aws_eks" {
   name     = "rabbitmq-api_${var.env}"
