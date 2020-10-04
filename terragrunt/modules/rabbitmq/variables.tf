@@ -11,10 +11,6 @@ variable "env" {
 variable "app" {
 }
 
-variable "sc" {
-  default = "07dda92883c803056"
-  type = list
-}
 
 
 variable "asgsc_application" {
