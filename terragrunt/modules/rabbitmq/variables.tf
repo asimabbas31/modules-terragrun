@@ -23,5 +23,5 @@ variable "public_subnet" {
 
 
 variable "rmqsg" {
-  type        = list
-}
+  default     = "sg-07dda92883c803056"
+  }
