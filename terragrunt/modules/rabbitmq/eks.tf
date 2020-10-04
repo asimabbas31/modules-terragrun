@@ -36,13 +36,60 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
   role       = aws_iam_role.eks_cluster.name
 }
 
+resource "aws_security_group" "rmq" {
+  name        = "rmq-${var.app}-${var.env}"
+  description = "RMQ"
+  vpc_id      = var.vpcid
+
+  ingress {
+    description      = "rmq"
+    from_port        = 5672
+    to_port          = 5672
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    
+  }
+  
+    ingress {
+    protocol        = "tcp"
+    from_port       = 15672
+    to_port         = 15672
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+    ingress {
+    protocol        = "tcp"
+    from_port       = 22
+    to_port         = 22
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+
+  # Allow all outbound requests
+egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = [
+      "0.0.0.0/0"]
+  }
+  tags = {
+    Name        = "rmq-${var.app}-${var.env}"
+    source      = "terraform"
+    project     = "api"
+    env         = var.env
+  }
+
+  }
+
+
 resource "aws_eks_cluster" "aws_eks" {
   name     = "rabbitmq-api_${var.env}"
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
     subnet_ids = var.asgsc_application
-    security_group_ids = var.rmqsg
+    security_group_ids = [aws_security_group.rmq.id]
   }
 
   tags = {
