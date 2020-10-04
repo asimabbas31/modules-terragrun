@@ -37,7 +37,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
 }
 
 resource "aws_security_group" "rmq" {
-  name        = "rmq-${var.app}-${var.env}"
+  name        = "rmq-${var.app}_${var.env}"
   description = "RMQ"
   vpc_id      = var.vpcid
 
