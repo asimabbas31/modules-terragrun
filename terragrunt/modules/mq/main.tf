@@ -11,10 +11,7 @@ terraform {
 data "template_file" "backend_user_data" {
   template = file("./config_userdata.sh")
   
-
-      }
-  }
-
+}
 
 resource "aws_launch_template" "rabbitmq" {
   name          = "${var.app}_${var.env}_rabbit_mq"
