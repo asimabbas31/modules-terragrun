@@ -38,7 +38,7 @@ user_data = base64encode(data.template_file.backend_user_data.rendered)
     device_index                = 0
     delete_on_termination       = true
     associate_public_ip_address = false
-    security_groups  = [var.sgapp]
+    security_groups  = [var.rmqsg]
   }
   
   
