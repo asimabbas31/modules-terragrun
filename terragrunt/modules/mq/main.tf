@@ -52,3 +52,50 @@ user_data = base64encode(data.template_file.backend_user_data.rendered)
     }
   }
   }
+
+
+
+resource "aws_autoscaling_group" "apple" {
+  name = "${var.env}_apple_rmq"
+  tags = [
+    {
+      key                 = "Name",
+      value               = "RMQ"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "source",
+      value               = "terraform"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "project",
+      value               = "API"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "env",
+      value               = var.env
+      propagate_at_launch = true
+    },
+  ]
+
+  min_size            = "1"
+  max_size            = "1"
+  desired_capacity    = "1"
+
+  health_check_type   = "ELB"
+  vpc_zone_identifier = var.asg_aws_subnet_ids
+  launch_template {
+    id      = aws_launch_template.rabbitmq.id
+    version = "$Latest"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  
+  }
+}
+
+
+
