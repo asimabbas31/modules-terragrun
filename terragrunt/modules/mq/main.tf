@@ -42,7 +42,7 @@ user_data = base64encode(data.template_file.backend_user_data.rendered)
   tag_specifications {
     resource_type = "instance"
     tags = {
-      name        = "${var.rabbitmq}"
+      name        = "RabbitMQ"
       source      = "terraform"
       project     = "API"
       env         = var.env
