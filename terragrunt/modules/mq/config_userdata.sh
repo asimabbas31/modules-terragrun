@@ -12,3 +12,5 @@ systemctl enable rabbitmq-server
 rabbitmq-plugins enable rabbitmq_management
 ufw allow proto tcp from any to any port 5672,15672
 rabbitmqctl add_user sb-admin hpAFj5JNvMxz9JuApBUz
+rabbitmqctl set_user_tags sb-admin administrator
+rabbitmqctl delete_user guest
