@@ -23,13 +23,13 @@ dependency "groups" {
   config_path = "../groups"
 }
 
-dependency "policy" {
-  config_path = "../secrets"
+dependency "subnets" {
+  config_path = "../network"
 }
 
 inputs = {
   instance_type = "t3.medium"
   key_name = "pago"
   rmqsg = dependency.groups.outputs.rmqsg
-
+  asg_aws_subnet_ids = dependency.subnets.outputs.asgsc_application
 }
