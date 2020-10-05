@@ -18,3 +18,7 @@ variable "rmqsg" {
 variable "app" {
   type        = string
 }
+
+variable "asg_aws_subnet_ids" {
+  type = list(string)
+}
