@@ -2,11 +2,11 @@ resource "aws_lb" "mq" {
   name                             = "rabbitmq-${var.env}"
   internal                         = false
   load_balancer_type               = "network"
-  enable_deletion_protection       = var.deletion_protection
+  enable_deletion_protection       = false
   enable_cross_zone_load_balancing = true
   ip_address_type                  = "ipv4" # cannot dual stack with specified addresses
 
-  subnets = var.public_subnets
+  subnets = var.public_subnet
   tags = {
     Name        = "rabbitmq"
     source      = "terraform"
@@ -74,7 +74,7 @@ resource "aws_lb_target_group" "rabbitmqhttp" {
 
 
 resource "aws_lb_listener" "rabbitmqhttp" {
-  load_balancer_arn = aws_lb.rabbitmq.arn
+  load_balancer_arn = aws_lb.mq.arn
   protocol          = "TCP"
   port              = 15672
   default_action {
