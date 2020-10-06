@@ -72,6 +72,28 @@ resource "aws_lb_target_group" "rabbitmqhttp" {
 }
 
 
+resource "aws_lb_target_group" "rabbitmqport" {
+  protocol    = "TCP"
+  port        = 5672
+  target_type = "instance"
+  vpc_id      = var.vpcid
+  tags = {
+    Name        = "rabbitmqport"
+    source      = "terraform"
+    project     = "API"
+    env = var.env
+  }
+  health_check {
+    enabled             = true
+    protocol            = "TCP"
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    interval            = 10
+  }
+}
+
+
+
 
 resource "aws_lb_listener" "rabbitmqhttp" {
   load_balancer_arn = aws_lb.mq.arn
@@ -82,6 +104,20 @@ resource "aws_lb_listener" "rabbitmqhttp" {
     type             = "forward"
   }
 }
+
+
+
+resource "aws_lb_listener" "rabbitmqport" {
+  load_balancer_arn = aws_lb.mq.arn
+  protocol          = "TCP"
+  port              = 5672
+  default_action {
+    target_group_arn = aws_lb_target_group.rabbitmqport.arn
+    type             = "forward"
+  }
+}
+
+
 
 resource "aws_autoscaling_attachment" "albapple" {
   autoscaling_group_name = "stage_apple_rmq"
