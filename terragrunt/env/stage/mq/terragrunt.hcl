@@ -27,9 +27,15 @@ dependency "subnets" {
   config_path = "../network"
 }
 
+
+dependency "vpc" {
+  config_path = "../vpc"
+}
+
 inputs = {
   instance_type = "t3.medium"
   key_name = "pago"
   rmqsg = dependency.groups.outputs.rmqsg
-  asg_aws_subnet_ids = dependency.subnets.outputs.asgsc_application
+  vpcid = dependency.vpc.outputs.vpcid
+  public_subnet = dependency.subnets.outputs.public_subnet
 }
