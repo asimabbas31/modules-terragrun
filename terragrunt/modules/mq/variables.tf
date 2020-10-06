@@ -26,3 +26,8 @@ variable "vpcid" {
 variable "public_subnet" {
   type = list(string)
 }
+
+
+variable "asg_aws_subnet_ids" {
+  type = list(string)
+}
