@@ -123,3 +123,9 @@ resource "aws_autoscaling_attachment" "albapple" {
   autoscaling_group_name = aws_autoscaling_group.apple.id
   alb_target_group_arn   = aws_lb_target_group.rabbitmqhttp.arn
 }
+
+
+resource "aws_autoscaling_attachment" "albappleport" {
+  autoscaling_group_name = aws_autoscaling_group.apple.id
+  alb_target_group_arn   = aws_lb_target_group.rabbitmqport.arn
+}
