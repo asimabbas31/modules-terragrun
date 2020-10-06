@@ -19,6 +19,10 @@ variable "app" {
   type        = string
 }
 
-variable "asg_aws_subnet_ids" {
+variable "vpcid" {
+  type        = string
+}
+
+variable "public_subnet" {
   type = list(string)
 }
