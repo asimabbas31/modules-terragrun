@@ -28,6 +28,6 @@ variable "public_subnet" {
 }
 
 
-variable "asgsc_application" {
+variable "asg_aws_subnet_ids" {
   type = list(string)
 }
