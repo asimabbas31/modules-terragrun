@@ -82,7 +82,7 @@ resource "aws_autoscaling_group" "apple" {
   desired_capacity    = "1"
 
   health_check_type   = "ELB"
-  vpc_zone_identifier = var.asgsc_application.id
+  vpc_zone_identifier = var.asg_aws_subnet_ids
   launch_template {
     id      = aws_launch_template.rabbitmq.id
     version = "$Latest"
