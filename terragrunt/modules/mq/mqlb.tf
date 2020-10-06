@@ -83,7 +83,7 @@ resource "aws_lb_listener" "rabbitmqhttp" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "rabbitmq" {
-  target_group_arn = aws_lb_target_group.rabbitmqhttp.arn
-  
+resource "aws_autoscaling_attachment" "albapple" {
+  autoscaling_group_name = var.autoscaling_group_apple
+  alb_target_group_arn   = aws_lb_target_group.apple.arn
 }
