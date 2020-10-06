@@ -120,6 +120,6 @@ resource "aws_lb_listener" "rabbitmqport" {
 
 
 resource "aws_autoscaling_attachment" "albapple" {
-  autoscaling_group_name = "stage_apple_rmq"
+  autoscaling_group_name = "var.autoscaling_group_apple"
   alb_target_group_arn   = aws_lb_target_group.rabbitmqhttp.arn
 }
