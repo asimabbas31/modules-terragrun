@@ -5,8 +5,8 @@ cd /tmp
 tar xf api.tar.gz
 mv /tmp/api/* /var/www/html/
 
-chmod 776 /var/www/html/storage -R
-chmod 776 /var/www/html/vendor -R
+chmod 777 /var/www/html/storage -R
+chmod 777 /var/www/html/vendor -R
 
 credstash -r eu-west-1 -t  api_stage_credstash_store getall --format dotenv > /var/www/html/.env
 
@@ -34,10 +34,12 @@ apt-get update
 
 apt-get install newrelic-infra -y
 
-cat <<EOF > /etc/newrelic-infra/logging.d/test.sh
+cat <<EOF > /etc/newrelic-infra/logging.d/legacy.yml
 logs:
   - name: legacy-logs
     file: /var/www/html/storage/logs/*.log
+  - name: Apache-Logs
+    file: /var/log/apache2/*.log
 EOF
 
 systemctl restart newrelic-infra.service
