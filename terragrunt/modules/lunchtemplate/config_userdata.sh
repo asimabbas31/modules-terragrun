@@ -21,6 +21,10 @@ php artisan queue:work redis --queue=notification --tries=2&
 php artisan queue:work redis --queue=order-payments --tries=2&
 php artisan queue:work redis --queue=transaction-update --tries=2&
 php artisan queue:work interop --queue=sb-api-integration --tries=1&
+php artisan queue:work redis --queue=sms --tries=1&
+php artisan queue:work redis --queue=safeboda-api-queue --tries=2&
+
+
 
 
 php artisan queue:work redis --queue=async-commands,bonus-payment,cleanup,device-metadata,default,eta,food-delivery-order-pm,high,notification,order-payments,paygate_rmq_callback_q,paygate-topup,payment,place,projections,safeboda-api-queue,sms,transaction-update,upload-merchants&
