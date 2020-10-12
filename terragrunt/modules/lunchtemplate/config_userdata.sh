@@ -23,11 +23,18 @@ php artisan queue:work redis --queue=transaction-update --tries=2&
 php artisan queue:work interop --queue=sb-api-integration --tries=1&
 php artisan queue:work redis --queue=sms --tries=1&
 php artisan queue:work redis --queue=safeboda-api-queue --tries=2&
+php artisan queue:work redis --queue=async-commands --tries=2&
+php artisan queue:work redis --queue=cleanup,device-metadata --tries=2&
+php artisan queue:work redis --queue=default --tries=2&
+php artisan queue:work redis --queue=high --tries=2&
+php artisan queue:work interop --queue=paygate_rmq_callback_q --tries=1&
+php artisan queue:work redis --queue=paygate-topup --tries=2&
+php artisan queue:work redis --queue=payment --tries=1&
+php artisan queue:work redis --queue=place --tries=2&
+php artisan queue:work interop --queue=bulk_actions_request_q --tries=1&
+php artisan queue:work redis --queue=projections --tries=2&
+php artisan queue:work redis --queue=sms --tries=1&
 
-
-
-
-php artisan queue:work redis --queue=async-commands,bonus-payment,cleanup,device-metadata,default,eta,food-delivery-order-pm,high,notification,order-payments,paygate_rmq_callback_q,paygate-topup,payment,place,projections,safeboda-api-queue,sms,transaction-update,upload-merchants&
 
 curl -s https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg | sudo apt-key add -
 
