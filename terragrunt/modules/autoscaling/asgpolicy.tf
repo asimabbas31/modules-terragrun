@@ -14,7 +14,9 @@ resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_up" {
   namespace = "AWS/EC2"
   period = "120"
   statistic = "Average"
-  threshold = "60"
+  threshold = "75"
+  actions_enabled     = true
+  treat_missing_data  = "notBreaching"
 
   dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.apple.name
@@ -22,4 +24,12 @@ resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_up" {
 
   alarm_description = "This metric monitor API EC2 instance CPU utilization"
   alarm_actions = [ aws_autoscaling_policy.load_policy_up.arn ]
+}
+
+ tags = {
+    Name        = "API overall CPU usage"
+    source      = "terraform"
+    project     = "API"
+    env = var.env
+  }
 }
