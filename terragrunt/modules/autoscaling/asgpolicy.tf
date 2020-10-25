@@ -14,9 +14,9 @@ resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_up" {
   namespace = "AWS/EC2"
   period = "120"
   statistic = "Average"
-  threshold = "75"
+  threshold = "60"
   actions_enabled     = true
-  treat_missing_data  = "notBreaching"
+  treat_missing_data  = "breaching"
 
   dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.apple.name
