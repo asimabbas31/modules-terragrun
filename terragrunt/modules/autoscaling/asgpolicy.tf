@@ -35,7 +35,7 @@ resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_up" {
 }
 
 
-esource "aws_autoscaling_policy" "load_policy_down" {
+resource "aws_autoscaling_policy" "load_policy_down" {
   name = "web_policy_down"
   scaling_adjustment = -1
   adjustment_type = "ChangeInCapacity"
