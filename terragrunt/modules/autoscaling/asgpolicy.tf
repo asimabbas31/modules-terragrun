@@ -40,7 +40,7 @@ resource "aws_autoscaling_policy" "load_policy_down" {
   scaling_adjustment = -1
   adjustment_type = "ChangeInCapacity"
   cooldown = 300
-  autoscaling_group_name = aws_autoscaling_group.web.name
+  autoscaling_group_name = aws_autoscaling_group.apple.name
 }
 
 resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_down" {
