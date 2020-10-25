@@ -24,7 +24,7 @@ resource "aws_cloudwatch_metric_alarm" "load_cpu_alarm_up" {
 
   alarm_description = "This metric monitor API EC2 instance CPU utilization"
   alarm_actions = [ aws_autoscaling_policy.load_policy_up.arn ]
-}
+
 
  tags = {
     Name        = "API overall CPU usage"
