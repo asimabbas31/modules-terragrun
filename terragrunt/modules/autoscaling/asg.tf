@@ -34,7 +34,7 @@ resource "aws_autoscaling_group" "apple" {
   ]
 
   min_size            = "1"
-  max_size            = "1"
+  max_size            = "3"
   desired_capacity    = "1"
 
   health_check_type   = "ELB"
