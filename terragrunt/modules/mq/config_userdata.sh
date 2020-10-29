@@ -16,7 +16,7 @@ rabbitmqctl set_user_tags sb-admin administrator
 rabbitmqctl delete_user guest
 rabbitmqctl set_permissions -p / sb-admin ".*" ".*" ".*"
 rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare exchange name=paygate_rmq_callback_q type=direct
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare exchange name=portal.bulk_actions_request_q type=direct
+rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare exchange name=portal.bulk_actions_request_q type=topic
 rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare exchange name=sb-api-exchange type=direct
 rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare queue name=paygate_rmq_callback_q
 rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=sb-admin --password=hpAFj5JNvMxz9JuApBUz -V / declare queue name=sb-api-integration
