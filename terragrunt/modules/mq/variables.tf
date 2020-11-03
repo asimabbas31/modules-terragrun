@@ -31,3 +31,10 @@ variable "public_subnet" {
 variable "asg_aws_subnet_ids" {
   type = list(string)
 }
+
+variable "mquser" {
+  type = list(string)
+}
+variable "mqpassword" {
+  type = list(string)
+}
