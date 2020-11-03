@@ -11,9 +11,6 @@ variable "env" {
   type        = string
 }
 
-variable "rmqsg" {
-  type        = string
-}
 
 variable "app" {
   type        = string
