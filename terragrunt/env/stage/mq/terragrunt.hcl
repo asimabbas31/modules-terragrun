@@ -38,4 +38,6 @@ inputs = {
   rmqsg = dependency.groups.outputs.rmqsg
   vpcid = dependency.vpc.outputs.vpcid
   public_subnet = dependency.subnets.outputs.public_subnet
+  mquser="sb-admin"
+  mqpassword= "hpAFj5JNvMxz9JuApBUz"
 }
