@@ -29,6 +29,10 @@ variable "asg_aws_subnet_ids" {
   type = list(string)
 }
 
+variable "rmqsg" {
+  type = list(string)
+}
+
 variable "mquser" {
   type = string
 }
