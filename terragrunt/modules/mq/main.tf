@@ -10,7 +10,9 @@ terraform {
 
 data "template_file" "backend_user_data" {
   template = file("./config_userdata.sh")
-  
+  vars = {
+  mqpassword = var.mqpassword
+ mquser = var.mquser  
 }
 
 resource "aws_launch_template" "rabbitmq" {
