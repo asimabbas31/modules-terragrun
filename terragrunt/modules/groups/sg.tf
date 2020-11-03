@@ -113,4 +113,46 @@ egress {
     env         = var.env
   }
 
+#For RMQ
+resource "aws_security_group" "rmqsg" {
+  name        = "rmq-${var.app}-${var.env}"
+  description = "RMQ"
+  vpc_id      = var.vpcid
+
+  ingress {
+    description      = "rmq"
+    from_port        = 5672
+    to_port          = 5672
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    
+  }
+  
+   ingress {
+    description      = ""
+    from_port        = 15672
+    to_port          = 15672
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    
+  }
+  
+
+  # Allow all outbound requests
+egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = [
+      "0.0.0.0/0"]
+  }
+  tags = {
+    Name        = "rmq-${var.app}-${var.env}"
+    source      = "terraform"
+    project     = "api"
+    env         = var.env
+  }  
+  
+  
+  
   }
