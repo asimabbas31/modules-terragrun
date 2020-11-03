@@ -112,7 +112,7 @@ egress {
     project     = "api"
     env         = var.env
   }
-
+  }
 #For RMQ
 resource "aws_security_group" "rmqsg" {
   name        = "rmq-${var.app}-${var.env}"
@@ -153,4 +153,4 @@ egress {
     env         = var.env
   }  
   }
-  }
+ 
