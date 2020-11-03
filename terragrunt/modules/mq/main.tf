@@ -14,7 +14,7 @@ data "template_file" "backend_user_data" {
   mqpassword = var.mqpassword
  mquser = var.mquser  
 }
-
+  }
 resource "aws_launch_template" "rabbitmq" {
   name          = "${var.app}_${var.env}_rabbit_mq"
   image_id      = "ami-06fd8a495a537da8b"
