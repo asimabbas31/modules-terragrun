@@ -152,4 +152,5 @@ egress {
     project     = "api"
     env         = var.env
   }  
-
+  }
+  }
