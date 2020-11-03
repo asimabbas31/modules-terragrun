@@ -137,6 +137,17 @@ resource "aws_security_group" "rmqsg" {
     
   }
   
+     ingress {
+    description      = ""
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    
+  }
+  
+  
+  
 
   # Allow all outbound requests
 egress {
