@@ -30,8 +30,8 @@ variable "asg_aws_subnet_ids" {
 }
 
 variable "mquser" {
-  type = list(string)
+  type = string
 }
 variable "mqpassword" {
-  type = list(string)
+  type = string
 }
