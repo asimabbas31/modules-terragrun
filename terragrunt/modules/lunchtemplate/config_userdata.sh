@@ -5,7 +5,7 @@ cd /tmp
 tar xf api.tar.gz
 mv /tmp/api/* /var/www/html/
 rm -rf /tmp/api.tar.gz
-credstash -r eu-west-1 -t  api_stage_credstash_store getall --format dotenv > /var/www/html/.env
+credstash -r eu-west-1 -t  api_${env}_credstash_store getall --format dotenv > /var/www/html/.env
 chown www-data.www-data /var/www/html/  -R
 chmod g+s /var/www/html/ -R
 
