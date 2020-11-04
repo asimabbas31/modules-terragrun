@@ -39,3 +39,8 @@ variable "mquser" {
 variable "mqpassword" {
   type = string
 }
+
+
+variable "mqurl" {
+  type        = string
+}
