@@ -12,7 +12,8 @@ data "template_file" "backend_user_data" {
   template = file("./config_userdata.sh")
   vars = {
   mqpassword = var.mqpassword
- mquser = var.mquser  
+ mquser = var.mquser 
+ mqurl = var.mqurl   
 }
   }
 resource "aws_launch_template" "rabbitmq" {
