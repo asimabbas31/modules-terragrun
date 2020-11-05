@@ -44,9 +44,22 @@ apt-get install newrelic-infra -y
 cat <<EOF > /etc/newrelic-infra/logging.d/legacy.yml
 logs:
   - name: legacy-logs
-    file: /var/www/html/storage/logs/*.log
-  - name: Apache-Logs
-    file: /var/log/apache2/*.log
+    file: /var/www/html/storage/logs/io.log
+    attributes:
+      application: api
+      env: ${env}
+      logtype: io
+EOF
+
+
+cat <<EOF > /etc/newrelic-infra/logging.d/api.yml
+logs:
+  - name: legacy-logs
+    file: /var/www/html/storage/logs/api.log
+    attributes:
+      application: api
+      env: ${env}
+      logtype: api
 EOF
 
 systemctl restart newrelic-infra.service
