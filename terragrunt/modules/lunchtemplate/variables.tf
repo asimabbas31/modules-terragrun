@@ -24,7 +24,7 @@ variable "app" {
    most_recent = true
    filter {
      name   = "name"
-     values = ["ami-legacy"]
+     values = ["legacy-ami"]
    }
    owners = ["957382640169"]
  }
