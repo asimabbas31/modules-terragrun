@@ -6,6 +6,7 @@ tar xf api.tar.gz
 mv /tmp/api/* /var/www/html/
 rm -rf /tmp/api.tar.gz
 credstash -r eu-west-1 -t  api_${env}_credstash_store getall --format dotenv > /var/www/html/.env
+credstash -r eu-west-1 -t  api_${env}_credstash_store getall --format dotenv > /var/www/html/.env.default
 systemctl start apache2
 chown ubuntu:www-data /var/www/html/ -R
 cd /var/www/html/
