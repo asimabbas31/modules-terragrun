@@ -7,8 +7,12 @@ Deployment of the payment services can only intiate through the bastion host. No
 ## Steps 
 As we have are using the multifactor authentication for aws login. Please enable multifactor authentication before starting the process. 
 
-### SSH Access
+### SSH Access for staging
 ```ssh ubuntu@bastion-api.safeboda.com```
+
+
+### SSH Access for Prod
+```ssh ubuntu@bastion-apiprod.safeboda.com```
 
 #Call the function on bastion host to prepare the environment 
  
@@ -41,16 +45,17 @@ enter the branchname and press enter default value: [master]:
 ### Get all secrets for an environement
 
 ```bash
-credstash -r eu-west-1 -t api_credential_store_{env} getall -f dotenv
+credstash -r eu-west-1 -t  api_stage_credstash_store getall -f dotenv
 
 ```
+```bash
+credstash -r eu-west-1 -t  api_prod_credstash_store getall -f dotenv
 
+```
 
 ### Add a secret to an environment
 
 ```bash
-credstash -r eu-west-1 -t api_credential_store_{env} put -k alias/api_credstash_{env} {NAME_OF_KEY} {VALUE}
-
-example:
-credstash -r eu-west-1 -t api_credstash_store_stage ^Ct -k  alias/api_credstash_stage -v 2 ACTIVATION_SMS_MESSAGE "<#> Your SafeBoda verification code is: "
+credstash -r eu-west-1 -t  api_stage_credstash_store put -k alias/api_credstash_{env} {NAME_OF_KEY} {VALUE}
+credstash -r eu-west-1 -t api_prod_credstash_store put -a -k alias/api_credstash_prod {NAME_OF_KEY} {VALUE}
 ```
