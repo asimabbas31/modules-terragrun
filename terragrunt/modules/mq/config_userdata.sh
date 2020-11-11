@@ -15,9 +15,9 @@ rabbitmqctl add_user ${mquser} ${mqpassword}
 rabbitmqctl set_user_tags ${mquser} administrator
 rabbitmqctl delete_user guest
 rabbitmqctl set_permissions -p / ${mquser} ".*" ".*" ".*"
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=paygate_rmq_callback_q type=direct
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=portal.bulk_actions_request_q type=topic
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=sb-api-exchange type=direct
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=paygate_rmq_callback_q
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=sb-api-integration
-rabbitmqadmin --host=staging-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=portal.food_delivery_order
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=paygate_rmq_callback_q type=direct
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=portal.bulk_actions_request_q type=topic
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=sb-api-exchange type=direct
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=paygate_rmq_callback_q
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=sb-api-integration
+rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=portal.food_delivery_order
