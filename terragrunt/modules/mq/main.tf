@@ -13,7 +13,6 @@ data "template_file" "backend_user_data" {
   vars = {
   mqpassword = var.mqpassword
  mquser = var.mquser 
- mqurl = var.mqurl 
  env = var.env
 }
   }
