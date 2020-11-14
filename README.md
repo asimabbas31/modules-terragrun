@@ -1,5 +1,3 @@
-# Handbook for API Services Deployment
-For API services we are using AWS infrastructure. The infastructure is based on AWS EC-2 Instances, AutoScaling Group, Application LoadBalancer, AMI and SSL Certificate. 
 
 For Deployment Please follow the steps. 
 ## Pre-requestes 
