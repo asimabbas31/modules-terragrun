@@ -1,7 +1,7 @@
 
 For Deployment Please follow the steps. 
 ## Pre-requestes 
-Deployment of the payment services can only intiate through the bastion host. Not available outside AWS. 
+Deployment of the services can only intiate through the bastion host. Not available outside AWS. 
 ## Steps 
 As we have are using the multifactor authentication for aws login. Please enable multifactor authentication before starting the process. 
 
