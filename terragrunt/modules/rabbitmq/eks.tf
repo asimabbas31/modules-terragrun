@@ -36,27 +36,20 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
   role       = aws_iam_role.eks_cluster.name
 }
 
-resource "aws_security_group" "rmq" {
-  name        = "rmq-${var.app}_${var.env}"
-  description = "RMQ"
+resource "aws_security_group" "application" {
+  name        = "sensing-${var.app}_${var.env}"
+  description = "Application"
   vpc_id      = var.vpcid
 
   ingress {
-    description      = "rmq"
-    from_port        = 5672
-    to_port          = 5672
+    description      = "application"
+    from_port        = 9000
+    to_port          = 9000
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     
   }
   
-    ingress {
-    protocol        = "tcp"
-    from_port       = 15672
-    to_port         = 15672
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
     ingress {
     protocol        = "tcp"
     from_port       = 22
@@ -74,28 +67,28 @@ egress {
       "0.0.0.0/0"]
   }
   tags = {
-    Name        = "rmq-${var.app}-${var.env}"
+    Name        = "application-${var.app}-${var.env}"
     source      = "terraform"
-    project     = "api"
+    project     = "sensing"
     env         = var.env
   }
 
   }
 
-  resource "aws_security_group_rule" "demo-cluster-ingress-workstation-https" {
+  resource "aws_security_group_rule" "cluster-ingress-workstation-https" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "Allow workstation to communicate with the cluster API Server"
-  from_port         = 15672
+  from_port         = 8080
   protocol          = "tcp"
   security_group_id = aws_security_group.rmq.id
-  to_port           = 15672
+  to_port           = 8080
   type              = "ingress"
 }
 
 
 
 resource "aws_eks_cluster" "aws_eks" {
-  name     = "rabbitmq-api_${var.env}"
+  name     = "sensing_${var.env}"
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
@@ -104,7 +97,7 @@ resource "aws_eks_cluster" "aws_eks" {
   }
 
   tags = {
-    Name = "RabbitMQ"
+    Name = "application"
     env = var.env
     Project = "API"
     app = var.app    
@@ -112,7 +105,7 @@ resource "aws_eks_cluster" "aws_eks" {
 }
 
 resource "aws_iam_role" "eks_nodes" {
-  name = "rabbitmq-api_${var.env}"
+  name = "application-api_${var.env}"
 
   assume_role_policy = <<POLICY
 {
@@ -147,7 +140,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 
 resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.aws_eks.name
-  node_group_name = "rabbitmq-api_${var.env}"
+  node_group_name = "application_${var.env}"
   node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = var.public_subnet
   scaling_config {
@@ -160,9 +153,9 @@ resource "aws_eks_node_group" "node" {
   }
   
   tags = {
-    Name = "rabbitmq-api_${var.env}"
+    Name = "application-node_${var.env}"
     env = var.env
-    Project = "API"
+    Project = "sensing"
   }
 
 
