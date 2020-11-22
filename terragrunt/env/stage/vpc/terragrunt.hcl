@@ -1,7 +1,7 @@
  
 terraform {
 
-   source = "git::git@github.com:SafeBoda/deployment-api//terragrunt/modules/vpc"
+   source = "git::git@github.com:asimabbas31/wstest//terragrunt/modules/vpc"
 
   extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
