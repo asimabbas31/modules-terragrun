@@ -36,7 +36,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
   role       = aws_iam_role.eks_cluster.name
 }
 
-resource "aws_security_group" "application" {
+resource "aws_security_group" "rmq" {
   name        = "sensing-${var.app}_${var.env}"
   description = "Application"
   vpc_id      = var.vpcid
