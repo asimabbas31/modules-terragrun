@@ -27,10 +27,10 @@ EOF
 remote_state {
   backend = "s3"
   config = {
-    bucket = "cars-pak"
+    bucket = "data-test"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region = "${local.aws_region}"
     encrypt        = true
-    dynamodb_table = "cars-pak"
+    dynamodb_table = "data-test"
 }
   }
