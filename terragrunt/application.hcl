@@ -1,4 +1,4 @@
  
 locals {
-  application = "api"
+  application = "test"
 }
