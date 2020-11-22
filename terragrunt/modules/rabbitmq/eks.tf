@@ -37,14 +37,14 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
 }
 
 resource "aws_security_group" "rmq" {
-  name        = "sensing-${var.app}_${var.env}"
+  name        = "paguntis-${var.app}_${var.env}"
   description = "Application"
   vpc_id      = var.vpcid
 
   ingress {
     description      = "application"
-    from_port        = 9000
-    to_port          = 9000
+    from_port        = 80
+    to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     
@@ -69,7 +69,7 @@ egress {
   tags = {
     Name        = "application-${var.app}-${var.env}"
     source      = "terraform"
-    project     = "sensing"
+    project     = "paguntis"
     env         = var.env
   }
 
@@ -78,10 +78,10 @@ egress {
   resource "aws_security_group_rule" "cluster-ingress-workstation-https" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "Allow workstation to communicate with the cluster API Server"
-  from_port         = 8080
+  from_port         = 80
   protocol          = "tcp"
   security_group_id = aws_security_group.rmq.id
-  to_port           = 8080
+  to_port           = 80
   type              = "ingress"
 }
 
@@ -99,7 +99,7 @@ resource "aws_eks_cluster" "aws_eks" {
   tags = {
     Name = "application"
     env = var.env
-    Project = "API"
+    Project = "paguntis"
     app = var.app    
   }
 }
@@ -155,7 +155,7 @@ resource "aws_eks_node_group" "node" {
   tags = {
     Name = "application-node_${var.env}"
     env = var.env
-    Project = "sensing"
+    Project = "paguntis"
   }
 
 
