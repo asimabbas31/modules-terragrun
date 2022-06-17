@@ -1,6 +1,6 @@
 terraform {
 
-  source = "git::git@github.com:SafeBoda/deployment-api//terragrunt/modules/loadbalancer"
+  source = "git::git@github.com:modules-terragrun/deployment-api//terragrunt/modules/loadbalancer"
 
     extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
@@ -33,7 +33,7 @@ inputs = {
   lbsc = dependency.groups.outputs.lbsc
   vpcid = dependency.vpc.outputs.vpcid
   autoscaling_group_apple = dependency.autoscaling.outputs.autoscaling_group_apple
-  domainname = "prod-apilatest.safeboda.com"
+  domainname = "prod-apilatest.modules-terragrun.com"
 }
 
 dependencies {

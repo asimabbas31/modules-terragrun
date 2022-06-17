@@ -5,7 +5,7 @@ include {
 
 
 terraform {
-    source = "git::git@github.com:SafeBoda/deployment-api//terragrunt/modules/lunchtemplate"
+    source = "git::git@github.com:modules-terragrun/deployment-api//terragrunt/modules/lunchtemplate"
 
     extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
@@ -33,11 +33,11 @@ dependency "vpc" {
 }
 
 inputs = {
-  instance_type = "t3.medium"
+  instance_type = "t2.micro"
   key_name = "pago"
   rmqsg = dependency.groups.outputs.rmqsg
   vpcid = dependency.vpc.outputs.vpcid
   public_subnet = dependency.subnets.outputs.public_subnet
-  mquser="sb-prod-admin"
-  mqpassword= "vMxz9JuAhpAFj5JNpBUz"
+  mquser="tets"
+  mqpassword= "test"
 }
