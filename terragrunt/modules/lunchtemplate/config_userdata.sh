@@ -19,7 +19,7 @@ php artisan queue:work redis --queue=order-payments --tries=2&
 php artisan queue:work redis --queue=transaction-update --tries=2&
 php artisan queue:work interop --queue=sb-api-integration --tries=1&
 php artisan queue:work redis --queue=sms --tries=1&
-php artisan queue:work redis --queue=safeboda-api-queue --tries=2&
+php artisan queue:work redis --queue=modules-terragrun-api-queue --tries=2&
 php artisan queue:work redis --queue=async-commands --tries=2&
 php artisan queue:work redis --queue=cleanup,device-metadata --tries=2&
 php artisan queue:work redis --queue=default --tries=2&

@@ -5,7 +5,7 @@ include {
 
 
 terraform {
-    source = "git::git@github.com:SafeBoda/deployment-api//terragrunt/modules/rabbitmq"
+    source = "git::git@github.com:modules-terragrun/deployment-api//terragrunt/modules/rabbitmq"
   
     extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()

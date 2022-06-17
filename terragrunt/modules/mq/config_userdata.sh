@@ -15,18 +15,4 @@ rabbitmqctl add_user ${mquser} ${mqpassword}
 rabbitmqctl set_user_tags ${mquser} administrator
 rabbitmqctl delete_user guest
 rabbitmqctl set_permissions -p / ${mquser} ".*" ".*" ".*"
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=paygate_rmq_callback_q type=direct
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=portal.bulk_actions_request_q type=direct
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=sb-api-exchange type=topic
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=web type=direct
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=bulk_actions_request_q type=direct
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=paygate_rmq_callback_q
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=sb-api-integration
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=portal.food_delivery_order
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=portal.bulk_actions_request_q
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=portal.bulk_actions_response_q
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=events-from-denarius
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=bulk_actions_response_q
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=bulk_actions_request_q
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=logstream
-rabbitmqadmin --host=${env}-mqapi.safeboda.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare queue name=aliveness-test
+rabbitmqadmin --host=${env}-mqapi.modules-terragrun.com --port=15672 --username=${mquser} --password=${mqpassword} -V / declare exchange name=paygate_rmq_callback_q type=direct
