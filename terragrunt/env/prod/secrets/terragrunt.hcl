@@ -1,6 +1,6 @@
 terraform {
 
-   source = "git::git@github.com:modules-terragrun/deployment-api//terragrunt/modules/secrets"
+   source = "git::git@github.com:modules-terragrun//terragrunt/modules/secrets"
 
   extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
