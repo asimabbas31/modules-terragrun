@@ -5,7 +5,7 @@ include {
 
 
 terraform {
-    source = "git::git@github.com:modules-terragrun/deployment-api//terragrunt/modules/network"
+    source = "git::git@github.com:modules-terragrun//terragrunt/modules/network"
   
     extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
